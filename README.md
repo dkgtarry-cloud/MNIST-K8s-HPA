@@ -22,10 +22,10 @@
 ```bash
 docker build -t mnist-api:v1 .
 docker run -d -p 5000:5000 mnist-api:v1
-
 curl -X POST -F "file=@sample.png" localhost:5000/predict
-# 输出示例：
-# {"prediction": 5}
+```
+输出示例：
+{"prediction": 5}
 
 <img width="865" height="475" alt="image" src="https://github.com/user-attachments/assets/d91f9ab6-0fa8-46ff-bc63-9fd5ad177b5a" />
 
