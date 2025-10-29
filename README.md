@@ -56,14 +56,16 @@ kubectl apply -f components.yaml
 ```
 说明：
 在Docker Desktop环境中，metrics-server默认无法采集节点指标，因为kubelet采用自签名证书；缺少 IP SAN（Subject Alternative Name）字段；
-metrics-server 在与 kubelet 建立 HTTPS 通信时校验失败。
-解决方法：
-通过修改 metrics-server 启动参数，添加：
-```bash
---kubelet-insecure-tls
-```
-跳过证书验证。
 
+metrics-server 在与 kubelet 建立 HTTPS 通信时校验失败。
+
+解决方法：
+
+通过修改 metrics-server 启动参数，添加：
+
+--kubelet-insecure-tls
+
+跳过证书验证。
 
 <img width="865" height="159" alt="image" src="https://github.com/user-attachments/assets/5cd922a5-891d-439b-84e2-267e4216df15" />
 
@@ -93,10 +95,9 @@ done
 
 6.自动扩缩容过程（观察指标变化）
 
-```bash
 cpu: 0%/50% → 250%/50% → 110%/50% → 97%/50%
 replicas: 1 → 4 → 5
-```
+
 HPA 监测到平均 CPU 使用率达到目标的 250%，触发扩容；
 
 Deployment 被指令扩容；
