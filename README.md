@@ -16,6 +16,8 @@
 
 ## 架构设计
 
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/74cffc95-e40e-4972-8dde-21e031395819" />
+<br>
 
 ## 部署步骤
 
@@ -70,11 +72,11 @@ kubectl apply -f components.yaml
 
 metrics-server 在与 kubelet 建立 HTTPS 通信时校验失败。
 
-**通过修改 metrics-server 启动参数，添加：**
+通过修改 metrics-server 启动参数，添加：
 
 **--kubelet-insecure-tls**
 
-**跳过证书验证。**
+跳过证书验证。
 
 <img width="865" height="159" alt="image" src="https://github.com/user-attachments/assets/5cd922a5-891d-439b-84e2-267e4216df15" />
 
