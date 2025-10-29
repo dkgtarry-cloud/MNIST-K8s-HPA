@@ -16,7 +16,8 @@
 
 ## 架构设计
 
-<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/74cffc95-e40e-4972-8dde-21e031395819" />
+<img width="695" height="740" alt="image" src="https://github.com/user-attachments/assets/b1006ece-4a93-4e34-b058-ac302ad292fe" />
+
 <br>
 
 ## 部署步骤
