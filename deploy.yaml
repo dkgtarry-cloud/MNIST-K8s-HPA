@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mnist-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mnist-api
+  template:
+    metadata:
+      labels:
+        app: mnist-api
+    spec:
+      containers:
+      - name: mnist-api
+        image: mnist-api:v1
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mnist-api-service
+spec:
+  selector:
+    app: mnist-api
+  ports:
+    - port: 80
+      targetPort: 5000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mnist-api-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "8m"
+spec:
+  ingressClassName: nginx      # ✅ 新标准字段，替代 annotation
+  rules:
+  - host: tarry.mnistapi.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: mnist-api-service
+            port:
+              number: 80
