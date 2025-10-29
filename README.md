@@ -34,7 +34,7 @@ curl -X POST -F "file=@sample.png" localhost:5000/predict
 
 <img width="865" height="91" alt="image" src="https://github.com/user-attachments/assets/885b0464-3949-41d1-8e1f-3a6aa267624f" />
 
-<img width="865" height="98" alt="image" src="https://github.com/user-attachments/assets/b15916b6-c2aa-42af-898d-4f6cf6e4806b" /><br>
+<img width="865" height="98" alt="image" src="https://github.com/user-attachments/assets/b15916b6-c2aa-42af-898d-4f6cf6e4806b" />
 <br>
 <br>
 **2、部署 Deployment、Service、Ingress：**
@@ -52,8 +52,8 @@ curl -X POST -F "file=@sample.png" http://tarry.mnistapi.local/predict
 
 
 <img width="865" height="426" alt="image" src="https://github.com/user-attachments/assets/a212f673-e64a-4df9-9393-2ff4aafda5a4" />  
-
-
+<br>
+<br>
 **3、安装与配置 Metrics Server**
 
   
@@ -80,8 +80,8 @@ metrics-server 在与 kubelet 建立 HTTPS 通信时校验失败。
 <img width="865" height="91" alt="image" src="https://github.com/user-attachments/assets/a5705db4-0bab-4bd5-9874-1eee8629abe0" />
 
 <img width="865" height="44" alt="image" src="https://github.com/user-attachments/assets/5b3ab63c-a294-4074-b8d3-6f0c4dc7bacd" />
-
-
+<br>
+<br>
 **4、启用 HPA（Horizontal Pod Autoscaler）**
 
 
@@ -91,8 +91,8 @@ kubectl get hpa
 ```
 <img width="865" height="39" alt="image" src="https://github.com/user-attachments/assets/0517e6c2-da39-4e61-a55d-7814ce30dc5a" />
 <img width="865" height="67" alt="image" src="https://github.com/user-attachments/assets/3d799998-6eda-48aa-883e-83086782cfe8" />
-
-
+<br>
+<br>
 **5.模拟高并发压测**
 
 
@@ -105,14 +105,14 @@ done
 ```
 
 <img width="865" height="75" alt="image" src="https://github.com/user-attachments/assets/ca390d77-67bb-4294-afe1-73b4e95e0abd" />
-
-
+<br>
+<br>
 **6.自动扩缩容过程（观察指标变化）**
 
-
-**cpu: 0%/50% → 250%/50% → 110%/50% → 97%/50%**
-
-**replicas: 1 → 4 → 5**
+```bash
+cpu: 0%/50% → 250%/50% → 110%/50% → 97%/50%*
+replicas: 1 → 4 → 5
+```
 
 HPA 监测到平均 CPU 使用率达到目标的 250%，触发扩容；
 
@@ -127,8 +127,8 @@ Deployment 被指令扩容；ReplicaSet 开始创建新 Pod；
 <img width="865" height="240" alt="image" src="https://github.com/user-attachments/assets/bbb14cbb-110d-4903-aadf-73a3acbbaf14" />
 
 <img width="865" height="828" alt="image" src="https://github.com/user-attachments/assets/542ee3d2-4d05-4521-b253-d66d51b8e8c0" />
-
-
+<br>
+<br>
 **7.QoS实验**
 
 
@@ -160,5 +160,6 @@ kubectl describe pod qos-besteffort | grep -i qos
 <img width="865" height="160" alt="image" src="https://github.com/user-attachments/assets/3e12d266-0bba-4ec6-9a5e-18ded39685ac" />
 
 <img width="865" height="154" alt="image" src="https://github.com/user-attachments/assets/c686877e-d890-4d8b-b91a-1f4025618409" />
-
+<br>
+<br>
 
