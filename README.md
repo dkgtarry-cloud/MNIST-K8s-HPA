@@ -37,6 +37,7 @@ curl -X POST -F "file=@sample.png" localhost:5000/predict
 <img width="865" height="98" alt="image" src="https://github.com/user-attachments/assets/b15916b6-c2aa-42af-898d-4f6cf6e4806b" />
 <br>
 <br>
+
 **2、部署 Deployment、Service、Ingress：**
   
 ```bash
@@ -54,6 +55,7 @@ curl -X POST -F "file=@sample.png" http://tarry.mnistapi.local/predict
 <img width="865" height="426" alt="image" src="https://github.com/user-attachments/assets/a212f673-e64a-4df9-9393-2ff4aafda5a4" />  
 <br>
 <br>
+
 **3、安装与配置 Metrics Server**
 
   
