@@ -62,19 +62,19 @@ curl -X POST -F "file=@sample.png" http://tarry.mnistapi.local/predict
 kubectl apply -f components.yaml
 ```
   
-在Docker Desktop环境中，metrics-server默认无法采集节点指标
+在Docker Desktop环境中，metrics-server默认无法采集节点指标：
 
-因为kubelet采用自签名证书；
+1.因为kubelet采用自签名证书；
 
-缺少 IP SAN（Subject Alternative Name）字段；
+2.缺少 IP SAN（Subject Alternative Name）字段；
 
 metrics-server 在与 kubelet 建立 HTTPS 通信时校验失败。
 
-通过修改 metrics-server 启动参数，添加：
+**通过修改 metrics-server 启动参数，添加：**
 
 **--kubelet-insecure-tls**
 
-跳过证书验证。
+**跳过证书验证。**
 
 <img width="865" height="159" alt="image" src="https://github.com/user-attachments/assets/5cd922a5-891d-439b-84e2-267e4216df15" />
 
@@ -152,6 +152,7 @@ kubectl describe pod qos-besteffort | grep -i qos
 ```
 
 结果：
+
 **QoS Class: Guaranteed**
 
 **QoS Class: Burstable**
