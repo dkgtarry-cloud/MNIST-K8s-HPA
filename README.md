@@ -41,11 +41,11 @@ kubectl get pods
 kubectl get svc
 kubectl get ingress
 ```
-```bash
-# 推理测试
+
+推理测试
 curl -X POST -F "file=@sample.png" http://tarry.mnistapi.local/predict
-# {"prediction": 5}
-```
+{"prediction": 5}
+
 
 <img width="865" height="426" alt="image" src="https://github.com/user-attachments/assets/a212f673-e64a-4df9-9393-2ff4aafda5a4" />
 
@@ -58,8 +58,6 @@ kubectl apply -f components.yaml
 在Docker Desktop环境中，metrics-server默认无法采集节点指标，因为kubelet采用自签名证书；缺少 IP SAN（Subject Alternative Name）字段；
 
 metrics-server 在与 kubelet 建立 HTTPS 通信时校验失败。
-
-解决方法：
 
 通过修改 metrics-server 启动参数，添加：
 
@@ -100,9 +98,7 @@ replicas: 1 → 4 → 5
 
 HPA 监测到平均 CPU 使用率达到目标的 250%，触发扩容；
 
-Deployment 被指令扩容；
-
-ReplicaSet 开始创建新 Pod；
+Deployment 被指令扩容；ReplicaSet 开始创建新 Pod；
 
 最终副本数上升到 5 个，CPU 使用率回落到 97%，系统趋稳。
 
