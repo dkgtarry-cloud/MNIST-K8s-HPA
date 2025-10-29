@@ -34,7 +34,7 @@ curl -X POST -F "file=@sample.png" localhost:5000/predict
 
 <img width="865" height="91" alt="image" src="https://github.com/user-attachments/assets/885b0464-3949-41d1-8e1f-3a6aa267624f" />
 
-<img width="865" height="98" alt="image" src="https://github.com/user-attachments/assets/b15916b6-c2aa-42af-898d-4f6cf6e4806b" />  
+<img width="865" height="98" alt="image" src="https://github.com/user-attachments/assets/b15916b6-c2aa-42af-898d-4f6cf6e4806b" /><br>
 
 
 **2、部署 Deployment、Service、Ingress：**
